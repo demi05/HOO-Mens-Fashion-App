@@ -21,7 +21,7 @@ const Checkout2 = () => {
         </Text>
         <Image src={diamondLine} />
       </Flex>
-      <Flex flexDir={"column"} gap={"2em"} p={"0 1.5em"}>
+      <Flex flexDir={"column"} gap={"2em"} p={"1.5em 1.5em 0 1.5em"}>
         <Flex flexDir={"column"} gap={"1em"}>
           <Text color={"#888888"} lineHeight={"16px"} letterSpacing={"1px"}>
             SHIPPING ADDRESS
