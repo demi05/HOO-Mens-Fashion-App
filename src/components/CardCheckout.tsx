@@ -2,6 +2,8 @@ import { Box, Flex, Image, SimpleGrid, Text } from "@chakra-ui/react";
 import blueFoldedShirt from "../images/blueFoldedShirt.svg";
 import brownSweatshirt from "../images/brownSweatshirt.svg";
 import blueShirt from "../images/blueShirt.svg";
+import { FiMinus} from "react-icons/fi";
+import { IoIosAdd } from "react-icons/io";
 import { useState } from "react";
 
 const CardCheckout = () => {
@@ -47,7 +49,7 @@ const CardCheckout = () => {
                   justifyContent={"center"}
                   fontSize={"24px"}
                 >
-                  -
+                  <FiMinus />
                 </Text>
                 {cartNum[index]}
                 <Text
@@ -57,7 +59,7 @@ const CardCheckout = () => {
                   alignItems={"center"}
                   justifyContent={"center"}
                 >
-                  +
+                  <IoIosAdd />
                 </Text>
               </Flex>
               <Text color={"#FF5E00"} fontSize={"15px"} lineHeight={"24px"}>$120</Text>

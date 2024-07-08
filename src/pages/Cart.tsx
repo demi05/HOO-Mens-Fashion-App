@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Box, Flex, Image, Link, Text } from "@chakra-ui/react";
 import { IoIosClose } from "react-icons/io";
 import { LiaShoppingBagSolid } from "react-icons/lia";
