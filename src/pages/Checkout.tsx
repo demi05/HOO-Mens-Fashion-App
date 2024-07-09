@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Link, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import CardCheckout from "../components/CardCheckout";
 import Header from "../components/Nav";
 import diamondLine from "../images/3.svg"

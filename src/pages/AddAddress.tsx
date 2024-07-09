@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Input, Link, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Input, Text } from "@chakra-ui/react";
 import Header from "../components/Nav";
 import diamondLine from "../images/3.svg";
 import { FormEvent, useState } from "react";
