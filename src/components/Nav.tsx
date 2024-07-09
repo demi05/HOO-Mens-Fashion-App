@@ -100,7 +100,7 @@ const Header = () => {
               <CiSearch size={"24px"} fontWeight={800} />
             </Box>
             <Box _hover={{ cursor: "pointer" }}>
-              <Link href="/cart">
+              <Link href="./cart">
                 <LiaShoppingBagSolid size={"24px"} />
               </Link>
             </Box>
@@ -121,19 +121,19 @@ const Header = () => {
                 gap={"2em"}
                 fontSize={"18px"}
               >
-                <Link href="/shop" onClick={onClose}>
+                <Link href="/" onClick={onClose}>
                   Shop
                 </Link>
-                <Link href="/stories" onClick={onClose}>
+                <Link href="/" onClick={onClose}>
                   Stories
                 </Link>
-                <Link href="/about" onClick={onClose}>
+                <Link href="/" onClick={onClose}>
                   About
                 </Link>
-                <Link href="/blog" onClick={onClose}>
+                <Link href="/" onClick={onClose}>
                   Blog
                 </Link>
-                <Link href="/contact" onClick={onClose}>
+                <Link href="/" onClick={onClose}>
                   Contact
                 </Link>
               </Flex>

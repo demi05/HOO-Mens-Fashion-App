@@ -1,9 +1,10 @@
+import { Box } from "@chakra-ui/react";
 
 const Categories = () => {
   return (
-    <div>
+    <Box>
       
-    </div>
+    </Box>
   )
 }
 
