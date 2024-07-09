@@ -5,6 +5,7 @@ import Checkout2 from './pages/Checkout2';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './Context/GlobalContext';
 import ProductListing from './pages/ProductListing';
+import Success from './pages/Success';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
     <Route path='/checkout' element={<Checkout />} />
     <Route path='/checkout2' element={<Checkout2 />} />
     <Route path='/productlisting' element={<ProductListing />} />
+    <Route path="success" element={<Success />} />
     </Routes>
     </Router>
     </div>
