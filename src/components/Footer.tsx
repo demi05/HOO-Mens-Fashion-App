@@ -5,8 +5,7 @@ import diamondLine from "../images/8.svg"
 const Footer = () => {
   return (
     <Flex flexDir={"column"} bg={"#fff"} mt={"2em"} pt={"2em"}>
-    <Flex flexDir={{base: "column", md: "column-reverse"}} alignItems={"center"} gap={"2em"} >
-      
+    <Flex flexDir={{base: "column", md: "column-reverse"}} alignItems={"center"} gap={"2em"} >    
     <Flex justifyContent={"space-between"}  margin={{base: "0 auto"}} color={"#FF5E00"} w={{base: "40%", md: "20%"}} mr={"auto"} >
         <FaTwitter size={"24px"}/>
         <FaInstagram size={"24px"} />

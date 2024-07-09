@@ -4,12 +4,11 @@ import diamondLine from "../images/3.svg";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { IoIosAdd } from "react-icons/io";
 import { RxCaretDown } from "react-icons/rx";
-import { useAddress } from "../Context/GlobalContext";
+// import { useAddress } from "../Context/GlobalContext";
 import { Link as RouterLink } from "react-router-dom";
 
 
 const Checkout2 = () => {
-    const { address } = useAddress();
   return (
     <Flex flexDir={"column"} minHeight={"100vh"} pb={"1.5em"}>
       <Header />
@@ -30,13 +29,6 @@ const Checkout2 = () => {
           <Text color={"#888888"} lineHeight={"16px"} letterSpacing={"1px"}>
             SHIPPING ADDRESS
           </Text>
-          {address && 
-          <Box>
-            <Text>{address.firstName} {address.lastName}</Text>
-            <Text>{address.address}</Text>
-            <Text>{address.city} {address.state}</Text>
-            <Text>{address.phoneNumber}</Text>
-            </Box>}
           <Flex
             bg={"rgba(255, 94, 0, 10%)"}
             alignItems={"center"}

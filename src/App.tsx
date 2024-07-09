@@ -2,13 +2,13 @@ import Checkout from './pages/Checkout';
 import Cart from './pages/Cart';
 import Home from './pages/Home';
 import Checkout2 from './pages/Checkout2';
-import AddAddress from './pages/AddAddress';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AddressProvider } from './Context/GlobalContext';
+import { CartProvider } from './Context/GlobalContext';
+import ProductListing from './pages/ProductListing';
 
 function App() {
   return (
-    <AddressProvider>
+    <CartProvider>
     <div className="App">
     <Router>
       <Routes>
@@ -16,12 +16,11 @@ function App() {
     <Route path='cart' element={<Cart />} />
     <Route path='checkout' element={<Checkout />} />
     <Route path='checkout2' element={<Checkout2 />} />
-    <Route path='addaddress' element={<AddAddress />} />
-    {/* <Route path='addaddress' element={<AddAddress />} /> */}
+    <Route path='productlisting' element={<ProductListing />} />
     </Routes>
     </Router>
     </div>
-    </AddressProvider>
+    </CartProvider>
   );
 }
 

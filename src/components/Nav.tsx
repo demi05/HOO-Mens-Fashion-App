@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Flex,
@@ -32,14 +31,16 @@ const Header = () => {
             aria-label={"Open Menu"}
           />
         </Box>
-        <Box
+        <Box 
           fontSize={"20px"}
           color={"#FF5E00"}
           textAlign={{ base: "center", md: "center" }}
           flex={{ base: "1", md: "none" }}
         >
+          <RouterLink to="/">
           <Heading as={"h3"}>HOO!</Heading>
           <Heading as={"h3"}>Men's Fashion</Heading>
+          </RouterLink>
         </Box>
         <Flex
           display={{ base: "none", md: "flex" }}

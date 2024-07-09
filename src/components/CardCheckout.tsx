@@ -1,49 +1,44 @@
 import { Box, Flex, Image, SimpleGrid, Text } from "@chakra-ui/react";
-import blueFoldedShirt from "../images/blueFoldedShirt.svg";
-import brownSweatshirt from "../images/brownSweatshirt.svg";
-import blueShirt from "../images/blueShirt.svg";
-import { FiMinus} from "react-icons/fi";
-import { IoIosAdd } from "react-icons/io";
-import { useState } from "react";
+import { FiMinus } from "react-icons/fi";
+import { IoIosAdd, IoIosClose } from "react-icons/io";
+import { CartItem } from "../Context/GlobalContext";
 
-const CardCheckout = () => {
-    const [cartNum, setCartNum] = useState<number[]>([1, 1, 1]);
+type CardCheckoutProps = {
+  cart: CartItem[];
+  increaseCartItem: (itemId: number) => void;
+  decreaseCartItem: (itemId: number) => void;
+  removeFromCart: (itemId: number) => void;
+};
 
-  const increaseCartNum = (index: number) => {
-    const newCartNum = [...cartNum];
-    newCartNum[index] += 1;
-    setCartNum(newCartNum);
-  };
-
-  const decreaseCartNum = (index: number) => {
-    const newCartNum = [...cartNum];
-    if (newCartNum[index] > 0) {
-      newCartNum[index] -= 1;
-      setCartNum(newCartNum);
-    }
-  };
-
-  const images = [blueFoldedShirt, brownSweatshirt, blueShirt];
-  const cartData = [
-    { name: "LAME", description: "reversible angle shirt [NAVY]" },
-    { name: "5252 by o!oi", description: "2024 convertible shirt [NAVY]" },
-    { name: "21WN", description: "2024 convertible shirt [NAVY]" },
-  ];
+const CardCheckout = ({ cart, increaseCartItem, decreaseCartItem, removeFromCart }: CardCheckoutProps) => {
   return (
     <div>
       <Flex flexDir={"column"} mt={"1em"} p={"0 1.5em 2em 1.5em"} gap={"2em"}>
-        {cartData.map((data, index) => (
-          <SimpleGrid key={index} gridTemplateColumns={"repeat(2, 2fr)"} gap={"2em"}>
+        {cart.map((item, index) => (
+          <SimpleGrid
+            key={index}
+            gridTemplateColumns={"repeat(3, 2fr)"}
+            gap={"2em"} alignItems={"flex-start"}
+          >
             <Box>
-            <Image width={"100%"} src={images[index]} />
+              <Image width={"100%"} src={item.image} />
             </Box>
-            <Flex flexDir={"column"} gap={"1em"}>
-              <Text lineHeight={"20px"} fontSize={"14px"} letterSpacing={"2px"} fontWeight={500}>{data.name}</Text>
-              <Text lineHeight={"18px"} fontSize={"12px"}>{data.description}</Text>
-              <Flex justifyContent={"space-between"} w={"50%"}>
+            <Flex flexDir={"column"} gap={"1em"} alignItems={"flex-start"}>
+              <Text lineHeight={"20px"} fontSize={"14px"} letterSpacing={"2px"} fontWeight={500}>
+                {item.name}
+              </Text>
+              <Text lineHeight={"18px"} fontSize={"12px"}>
+                {item.description}
+              </Text>
+              <Flex justifyContent={"space-between"} w={"80%"}>
                 <Text
                   _hover={{ cursor: "pointer" }}
-                  onClick={() => decreaseCartNum(index)} borderRadius={"50%"} border={"1px solid #555555"} w={"24px"} h={"24px"} textAlign={"center"}
+                  onClick={() => decreaseCartItem(item.id)}
+                  borderRadius={"50%"}
+                  border={"1px solid #555555"}
+                  w={"24px"}
+                  h={"24px"}
+                  textAlign={"center"}
                   display={"flex"}
                   alignItems={"center"}
                   justifyContent={"center"}
@@ -51,24 +46,47 @@ const CardCheckout = () => {
                 >
                   <FiMinus />
                 </Text>
-                {cartNum[index]}
+                {item.quantity}
                 <Text
                   _hover={{ cursor: "pointer" }}
-                  onClick={() => increaseCartNum(index)} borderRadius={"50%"} border={"1px solid #555555"} w={"24px"} h={"24px"} textAlign={"center"}
+                  onClick={() => increaseCartItem(item.id)}
+                  borderRadius={"50%"}
+                  border={"1px solid #555555"}
+                  w={"24px"}
+                  h={"24px"}
+                  textAlign={"center"}
                   display={"flex"}
                   alignItems={"center"}
                   justifyContent={"center"}
+                  fontSize={"24px"}
                 >
                   <IoIosAdd />
                 </Text>
               </Flex>
-              <Text color={"#FF5E00"} fontSize={"15px"} lineHeight={"24px"}>$120</Text>
+            </Flex>
+            <Flex
+              flexDir={{ base: "row", md: "column" }}
+              alignItems={"flex-end"}
+              justifyContent={{ base: "space-between", md: "space-between" }}
+              width={{ base: "100%", md: "auto" }}
+            >
+              <Text color={"#FF5E00"} fontSize={"20px"} lineHeight={"24px"}>
+                ${item.price}
+              </Text>
+              <Flex
+                onClick={() => removeFromCart(item.id)}
+                alignItems={"center"}
+                bg={"transparent"}
+                _hover={{ cursor: "pointer", p: "0.5em" }}
+              >
+                <IoIosClose color="#FF5E00" size={"24px"} />
+              </Flex>
             </Flex>
           </SimpleGrid>
         ))}
       </Flex>
     </div>
-  )
-}
+  );
+};
 
-export default CardCheckout
+export default CardCheckout;
