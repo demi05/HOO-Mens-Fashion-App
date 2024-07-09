@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   Flex,
@@ -10,11 +11,13 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
+  Text,
   Input,
 } from "@chakra-ui/react";
 import { HiMiniBars3CenterLeft } from "react-icons/hi2";
 import { CiSearch } from "react-icons/ci";
 import { LiaShoppingBagSolid } from "react-icons/lia";
+import { Link as RouterLink } from "react-router-dom";
 
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -27,7 +30,7 @@ const Header = () => {
           justifyContent={"space-between"}
           flexDirection={{ base: "row", md: "row" }}
         >
-          <Flex alignItems={"center"} flex={"1"} gap={"2em"} border={"1px solid red"} w={"10%"}>
+          <Flex alignItems={"center"} flex={"1"} gap={"2em"}>
             <Box display={{ base: "block", md: "none" }}>
               <IconButton
                 bg={"transparent"}
@@ -39,7 +42,7 @@ const Header = () => {
             <Box
               fontSize={"20px"}
               color={"#FF5E00"}
-              textAlign={{ base: "center", md: "center" }}
+              textAlign={{ base: "center", md: "left" }}
               mr={{ base: "auto", md: "1em" }}
             >
               <Heading as={"h3"}>HOO!</Heading>
@@ -50,16 +53,26 @@ const Header = () => {
             display={{ base: "none", md: "flex" }}
             alignItems={"center"}
             justifyContent={"center"}
-            width={"70%"}
+            width={"100%"}
             mx={"auto"}
           >
-            <Link href="/shop" mx={"1em"}>Shop</Link>
-            <Link href="/stories" mx={"1em"}>Stories</Link>
-            <Link href="/about" mx={"1em"}>About</Link>
-            <Link href="/blog" mx={"1em"}>Blog</Link>
-            <Link href="/contact" mx={"1em"}>Contact</Link>
-            <Flex alignItems={"center"} justifyContent={"space-between"} ml={"2em"}>
-              <Box position={"relative"} _hover={{ cursor: "pointer" }}>
+            <RouterLink to="/shop">
+              <Text mx={"1em"}>Shop</Text>
+            </RouterLink>
+            <RouterLink to="/stories">
+              <Text mx={"1em"}>Stories</Text>
+            </RouterLink>
+            <RouterLink to="/about">
+              <Text mx={"1em"}>About</Text>
+            </RouterLink>
+            <RouterLink to="/blog">
+              <Text mx={"1em"}>Blog</Text>
+            </RouterLink>
+            <RouterLink to="/contact">
+              <Text mx={"1em"}>Contact</Text>
+            </RouterLink>
+            <Flex alignItems={"center"} justifyContent={"space-between"}>
+              <Box position={"relative"} ml={"2em"} _hover={{ cursor: "pointer" }}>
                 <CiSearch size={"24px"} fontWeight={800} />
                 <Input
                   type="text"
@@ -79,14 +92,14 @@ const Header = () => {
                 alignItems={"center"}
                 gap={"0.5em"}
                 _hover={{ cursor: "pointer" }}
-                ml={"2em"}
+                flexDir={"row"}
               >
-                <Link href="/cart">
+                <RouterLink to="/cart">
                   <LiaShoppingBagSolid size={"24px"} />
-                  {/* <Text display={{ base: "none", md: "inline" }} ml={2}>
+                  {/* <Text display={{ base: "none", md: "block" }} ml={2}>
                     Cart
                   </Text> */}
-                </Link>
+                </RouterLink>
               </Flex>
             </Flex>
           </Flex>
@@ -100,9 +113,9 @@ const Header = () => {
               <CiSearch size={"24px"} fontWeight={800} />
             </Box>
             <Box _hover={{ cursor: "pointer" }}>
-              <Link href="./cart">
+              <RouterLink to="/cart">
                 <LiaShoppingBagSolid size={"24px"} />
-              </Link>
+              </RouterLink>
             </Box>
           </Flex>
         </Flex>
@@ -121,21 +134,21 @@ const Header = () => {
                 gap={"2em"}
                 fontSize={"18px"}
               >
-                <Link href="/" onClick={onClose}>
+                <RouterLink to="/" onClick={onClose}>
                   Shop
-                </Link>
-                <Link href="/" onClick={onClose}>
+                </RouterLink>
+                <RouterLink to="/" onClick={onClose}>
                   Stories
-                </Link>
-                <Link href="/" onClick={onClose}>
+                </RouterLink>
+                <RouterLink to="/" onClick={onClose}>
                   About
-                </Link>
-                <Link href="/" onClick={onClose}>
+                </RouterLink>
+                <RouterLink to="/" onClick={onClose}>
                   Blog
-                </Link>
-                <Link href="/" onClick={onClose}>
+                </RouterLink>
+                <RouterLink to="/" onClick={onClose}>
                   Contact
-                </Link>
+                </RouterLink>
               </Flex>
             </DrawerBody>
           </DrawerContent>
