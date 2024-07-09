@@ -5,6 +5,7 @@ import { LiaShoppingBagSolid } from "react-icons/lia";
 import { IoIosAdd } from "react-icons/io";
 import { RxCaretDown } from "react-icons/rx";
 import { useAddress } from "../Context/GlobalContext";
+import { Link as RouterLink } from "react-router-dom";
 
 
 const Checkout2 = () => {
@@ -100,7 +101,7 @@ const Checkout2 = () => {
           $360
         </Text>
       </Flex>
-      <Link _hover={{ textDecoration: "none" }}>
+      <RouterLink to={"/"}>
         <Box
           bg={"#FF5E00"}
           color={"#FCFCFC"}
@@ -119,7 +120,7 @@ const Checkout2 = () => {
             </Text>
           </Flex>
         </Box>
-      </Link>
+      </RouterLink>
       </Box>
     </Flex>
   );

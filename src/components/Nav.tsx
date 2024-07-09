@@ -54,19 +54,19 @@ const Header = () => {
             width={"100%"}
             mx={"auto"}
           >
-            <RouterLink to="/shop">
+            <RouterLink to="/">
               <Text mx={"1em"}>Shop</Text>
             </RouterLink>
-            <RouterLink to="/stories">
+            <RouterLink to="/">
               <Text mx={"1em"}>Stories</Text>
             </RouterLink>
-            <RouterLink to="/about">
+            <RouterLink to="/">
               <Text mx={"1em"}>About</Text>
             </RouterLink>
-            <RouterLink to="/blog">
+            <RouterLink to="/">
               <Text mx={"1em"}>Blog</Text>
             </RouterLink>
-            <RouterLink to="/contact">
+            <RouterLink to="/">
               <Text mx={"1em"}>Contact</Text>
             </RouterLink>
             <Flex alignItems={"center"} justifyContent={"space-between"}>

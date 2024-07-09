@@ -3,6 +3,7 @@ import Header from "../components/Nav";
 import diamondLine from "../images/3.svg";
 import { FormEvent, useState } from "react";
 import { useAddress } from "../Context/GlobalContext";
+import { Link as RouterLink } from "react-router-dom";
 
 const AddAddress = () => {
     const { setAddress } = useAddress();
@@ -109,11 +110,11 @@ const AddAddress = () => {
         </Box>
         </Flex>
       </form>
-      <Link href="checkout2"  _hover={{ textDecoration: "none" }} mt={"5em"}>
+      <RouterLink to="checkout2" >
         <Box bg={"#FF5E00"} color={"#FCFCFC"} p={"1em"} _hover={{cursor: "pointer"} }>   
           <Text fontSize={"16px"} lineHeight={"26px"} letterSpacing={"1%"} textAlign={"center"}>ADD NOW</Text>
         </Box>
-        </Link>
+        </RouterLink>
     </Box>
   );
 };

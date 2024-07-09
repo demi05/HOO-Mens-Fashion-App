@@ -3,6 +3,7 @@ import { IoIosClose } from "react-icons/io";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import cart from "../images/material-symbols-light_shopping-cart-outline.svg"
 import CardCheckout from "../components/CardCheckout";
+import { Link as RouterLink } from "react-router-dom";
 
 const Cart = () => {
   return (
@@ -30,14 +31,14 @@ const Cart = () => {
         </Flex>
         </Box>
         </Link>
-        <Link href="/"  _hover={{ textDecoration: "none" }}>
+        <RouterLink to="/" >
         <Box borderTop={"1px solid #FF5E00"} borderBottom={"1px solid #FF5E00"} mt={"1em"} p={"1em"} _hover={{cursor: "pointer", border: "none", boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px"}}>
         <Flex alignItems={"center"} justifyContent={"space-between"} w={"50%"}m={"0 auto"}>
           <Image src={cart} w={"24px"} h={"24px"}/>
           <Text fontSize={"16px"} lineHeight={"26px"} letterSpacing={"1%"} color={"#FF5E00"}>CONTINUE SHOPPING</Text>
         </Flex>
         </Box> 
-        </Link>
+        </RouterLink>
     </Box>
   );
 };

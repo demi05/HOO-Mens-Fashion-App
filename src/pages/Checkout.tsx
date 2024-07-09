@@ -5,6 +5,7 @@ import diamondLine from "../images/3.svg"
 import voucher from "../images/Voucher.svg"
 import delivery from "../images/Door to Door Delivery.svg"
 import { LiaShoppingBagSolid } from "react-icons/lia";
+import { Link as RouterLink } from "react-router-dom";
 
 const Chekout = () => {
   return (
@@ -32,14 +33,14 @@ const Chekout = () => {
         <Text lineHeight={"34.5px"} letterSpacing={"3px"}>EST. TOTAL</Text>
         <Text ml={"auto"} lineHeight={"34.5px"} letterSpacing={"3px"} color={"#FF5E00"}>$360</Text>
       </Flex>
-      <Link href="/checkout2"  _hover={{ textDecoration: "none" }}>
+      <RouterLink to="/checkout2">
         <Box bg={"#FF5E00"} color={"#FCFCFC"} p={"1em"} _hover={{cursor: "pointer"} }>
         <Flex alignItems={"center"} justifyContent={"space-between"} w={"30%"}m={"0 auto"}>
           <LiaShoppingBagSolid color="#FCFCFC" size={"20px"}/>
           <Text fontSize={"16px"} lineHeight={"26px"} letterSpacing={"1%"}>CHECKOUT</Text>
         </Flex>
         </Box>
-        </Link>
+        </RouterLink>
     </Box>
   )
 }
