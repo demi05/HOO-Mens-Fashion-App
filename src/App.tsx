@@ -13,10 +13,10 @@ function App() {
     <Router>
       <Routes>
     <Route path="/" element={<Home />} />
-    <Route path='cart' element={<Cart />} />
-    <Route path='checkout' element={<Checkout />} />
-    <Route path='checkout2' element={<Checkout2 />} />
-    <Route path='productlisting' element={<ProductListing />} />
+    <Route path='/cart' element={<Cart />} />
+    <Route path='/checkout' element={<Checkout />} />
+    <Route path='/checkout2' element={<Checkout2 />} />
+    <Route path='/productlisting' element={<ProductListing />} />
     </Routes>
     </Router>
     </div>
