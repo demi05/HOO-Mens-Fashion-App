@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Flex,
@@ -11,7 +10,6 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  Text,
   Input,
 } from "@chakra-ui/react";
 import { HiMiniBars3CenterLeft } from "react-icons/hi2";
