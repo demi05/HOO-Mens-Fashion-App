@@ -109,7 +109,7 @@ const Cart = () => {
             <Flex
               alignItems={"center"}
               justifyContent={"space-between"}
-              w={{sm:"40%", md: "60%"}}
+              w={{sm:"50%", md: "60%"}}
               m={"0 auto"}
             >
               <Image src={cartIcon} w={"24px"} h={"24px"} />

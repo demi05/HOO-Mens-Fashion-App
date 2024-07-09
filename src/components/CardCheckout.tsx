@@ -65,7 +65,7 @@ const CardCheckout = ({ cart, increaseCartItem, decreaseCartItem, removeFromCart
               </Flex>
             </Flex>
             <Flex
-              flexDir={{ base: "row", md: "column" }}
+              flexDir={ "column" }
               alignItems={"flex-end"}
               justifyContent={{ base: "space-between", md: "space-between" }}
               width={{ base: "100%", md: "auto" }}

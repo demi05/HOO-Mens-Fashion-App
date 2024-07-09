@@ -48,10 +48,10 @@ const Checkout = () => {
       <Flex p={"1em 1.5em"}>
         <Text lineHeight={"34.5px"} letterSpacing={"3px"}>EST. TOTAL</Text>
         <Text ml={"auto"} lineHeight={"34.5px"} letterSpacing={"3px"} color={"#FF5E00"}>
-          ${subtotal.toFixed(2)}
+          ${subtotal.toFixed(2)} {/* Ensure subtotal is displayed correctly */}
         </Text>
       </Flex>
-      <RouterLink to="/checkout2">
+      <RouterLink to="/checkout2"> {/* Link to your checkout2 page */}
         <Box bg={"#FF5E00"} color={"#FCFCFC"} p={"1em"} _hover={{ cursor: "pointer" }}>
           <Flex alignItems={"center"} justifyContent={"space-between"} w={"30%"} m={"0 auto"}>
             <LiaShoppingBagSolid color="#FCFCFC" size={"20px"} />
