@@ -25,7 +25,7 @@ const Products = () => {
             <CiHeart color="#FF5E00"/>
             </Box>
         </Flex>
-        <Text fontSize={"12px"} fontWeight={600}>{index % 2 == 0? "21WN": "lame"}</Text>
+        <Text fontSize={"12px"} fontWeight={600}>{index % 2 === 0? "21WN": "lame"}</Text>
         <Text fontSize={"12px"}>{product.description}</Text>
         <Text fontSize={"15px"} color={"#FF5E00"}>$120</Text>
       </Flex>
