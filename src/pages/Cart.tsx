@@ -74,7 +74,7 @@ const Cart = () => {
           *shipping charges, taxes and discount codes are calculated at
           checkout.
         </Text>
-        <Link href="/checkout" _hover={{ textDecoration: "none" }}>
+        <Link href="./checkout" _hover={{ textDecoration: "none" }}>
           <Box
             bg={"#FF5E00"}
             color={"#FCFCFC"}

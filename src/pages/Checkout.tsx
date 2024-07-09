@@ -22,7 +22,7 @@ const Checkout = () => {
       </Flex>
       {cart.length === 0 ? (
         <Text pl={"1.5em"} fontWeight={500} mt={"3em"}>
-          There are no items in your cart currently.
+          There are no items to checkout.
         </Text>
       ) : (
         <CardCheckout 
