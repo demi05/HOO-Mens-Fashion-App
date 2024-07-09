@@ -17,20 +17,20 @@ const CardCheckout = ({ cart, increaseCartItem, decreaseCartItem, removeFromCart
         {cart.map((item, index) => (
           <SimpleGrid
             key={index}
-            gridTemplateColumns={"repeat(3, 2fr)"}
+            gridTemplateColumns={{sm: "1fr",md:"repeat(3, 2fr)"}}
             gap={"2em"} alignItems={"flex-start"}
           >
-            <Box>
+            <Box width={{base: "100%", sm: "80%", md: "100%", lg: "80%"}}>
               <Image width={"100%"} src={item.image} />
             </Box>
-            <Flex flexDir={"column"} gap={"1em"} alignItems={"flex-start"}>
-              <Text lineHeight={"20px"} fontSize={"14px"} letterSpacing={"2px"} fontWeight={500}>
+            <Flex flexDir={"column"} gap={"3em"} alignItems={"flex-start"}>
+              <Text lineHeight={"20px"} fontSize={{sm: "20px", md: "22px", lg: "26px"}} letterSpacing={"2px"} fontWeight={500}>
                 {item.name}
               </Text>
-              <Text lineHeight={"18px"} fontSize={"12px"}>
+              <Text lineHeight={"18px"} fontSize={{sm: "18px", md: "18px"}}>
                 {item.description}
               </Text>
-              <Flex justifyContent={"space-between"} w={"80%"}>
+              <Flex justifyContent={"space-between"} w={{sm: "100%", md:"90%"}}>
                 <Text
                   _hover={{ cursor: "pointer" }}
                   onClick={() => decreaseCartItem(item.id)}
@@ -65,19 +65,19 @@ const CardCheckout = ({ cart, increaseCartItem, decreaseCartItem, removeFromCart
               </Flex>
             </Flex>
             <Flex
-              flexDir={ "column" }
+              flexDir={ {sm: "row", md:"column"} }
               alignItems={"flex-end"}
-              justifyContent={{ base: "space-between", md: "space-between" }}
+              gap={"3em"}
               width={{ base: "100%", md: "auto" }}
             >
-              <Text color={"#FF5E00"} fontSize={"20px"} lineHeight={"24px"}>
+              <Text color={"#FF5E00"} fontSize={{sm: "20px", md: "22px", lg: "26px"}}   lineHeight={"24px"} fontWeight={500}>
                 ${item.price}
               </Text>
               <Flex
                 onClick={() => removeFromCart(item.id)}
                 alignItems={"center"}
                 bg={"transparent"}
-                _hover={{ cursor: "pointer", p: "0.5em" }}
+                _hover={{ cursor: "pointer"}} ml={{ sm:"auto", md: "0"}} 
               >
                 <IoIosClose color="#FF5E00" size={"24px"} />
               </Flex>

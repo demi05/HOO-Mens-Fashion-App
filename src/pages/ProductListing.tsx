@@ -1,8 +1,9 @@
-import { Box, Button, Flex, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, SimpleGrid, Text } from "@chakra-ui/react";
 import { useCart } from "../Context/GlobalContext";
 import Header from "../components/Nav";
 import Footer from "../components/Footer";
 import {Link as RouterLink} from "react-router-dom"
+import Deal from "../components/Deal";
 
 const ProductListing = () => {
   const { addToCart, productDetails } = useCart();
@@ -16,9 +17,10 @@ const ProductListing = () => {
   return (
     <Box>
       <Header />
+      <Deal />
       <SimpleGrid gridTemplateColumns={{ sm: "1fr", md: "repeat(2, 2fr)" }} gap="2em" p="1.5em">
-        <Box>
-          <img src={productDetails?.image} alt={productDetails?.name} style={{ width: "100%" }} />
+        <Box w={{base: "90%", sm: "70%", md: "70%", lg: "50%"}} >
+          <Image src={productDetails?.image} alt={productDetails?.name}  w= "100%"  />
         </Box>
         <Box color={"#555555"}>
           <Text fontSize="36px" lineHeight={"44px"} fontWeight={600} mb="1em" color={"#000"}>

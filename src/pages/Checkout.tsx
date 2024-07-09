@@ -14,7 +14,7 @@ const Checkout = () => {
   return (
     <Box pb={"1.5em"}>
       <Header />
-      <Flex flexDir={"column"} alignItems={"center"}>
+      <Flex flexDir={"column"} alignItems={"center"} mb={"2em"}>
         <Text fontSize={"18px"} fontWeight={500} lineHeight={"40px"} letterSpacing={"6px"} textAlign={"center"}>
           CHECKOUT
         </Text>
