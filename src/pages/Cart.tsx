@@ -31,7 +31,7 @@ const Cart = () => {
         </Flex>
         </Box>
         </Link>
-        <RouterLink to="/" >
+        <RouterLink to="/checkout" >
         <Box borderTop={"1px solid #FF5E00"} borderBottom={"1px solid #FF5E00"} mt={"1em"} p={"1em"} _hover={{cursor: "pointer", border: "none", boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px"}}>
         <Flex alignItems={"center"} justifyContent={"space-between"} w={"50%"}m={"0 auto"}>
           <Image src={cart} w={"24px"} h={"24px"}/>
