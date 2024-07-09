@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import Header from "../components/Header";
+import Header from "../components/Nav";
 import Search from "../components/Search";
 import Products from "../components/Products";
 import Footer from "../components/Footer";

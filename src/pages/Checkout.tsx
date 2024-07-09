@@ -1,6 +1,6 @@
 import { Box, Flex, Image, Link, Text } from "@chakra-ui/react";
 import CardCheckout from "../components/CardCheckout";
-import Header from "../components/Header";
+import Header from "../components/Nav";
 import diamondLine from "../images/3.svg"
 import voucher from "../images/Voucher.svg"
 import delivery from "../images/Door to Door Delivery.svg"

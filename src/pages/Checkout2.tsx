@@ -1,5 +1,5 @@
 import { Box, Flex, Image, Link, Text } from "@chakra-ui/react";
-import Header from "../components/Header";
+import Header from "../components/Nav";
 import diamondLine from "../images/3.svg";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { IoIosAdd } from "react-icons/io";

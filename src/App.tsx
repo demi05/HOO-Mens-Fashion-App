@@ -17,6 +17,7 @@ function App() {
     <Route path='checkout' element={<Checkout />} />
     <Route path='checkout2' element={<Checkout2 />} />
     <Route path='addaddress' element={<AddAddress />} />
+    {/* <Route path='addaddress' element={<AddAddress />} /> */}
     </Routes>
     </Router>
     </div>
