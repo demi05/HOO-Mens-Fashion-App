@@ -74,7 +74,7 @@ const Cart = () => {
           *shipping charges, taxes and discount codes are calculated at
           checkout.
         </Text>
-        <Link href="/checkout" _hover={{ textDecoration: "none" }}>
+        <RouterLink to="/checkout" >
           <Box
             bg={"#FF5E00"}
             color={"#FCFCFC"}
@@ -93,7 +93,7 @@ const Cart = () => {
               </Text>
             </Flex>
           </Box>
-        </Link>
+        </RouterLink>
         <RouterLink to="/">
           <Box
             borderTop={"1px solid #FF5E00"}
