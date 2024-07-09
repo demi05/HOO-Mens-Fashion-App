@@ -37,9 +37,9 @@ const Checkout2 = () => {
           >
             <Text>New shipping address</Text>
             <Link ml={"auto"} _hover={{cursor: "pointer", textDecoration: "none"}}>
-            <Link href="/addaddress">
+            <RouterLink to="/">
             <IoIosAdd size={"20px"}/>
-            </Link>
+            </RouterLink>
             </Link>
           </Flex>
         </Flex>
