@@ -1,14 +1,15 @@
-import { Box, Flex, Image, Link, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Link, Select, Text } from "@chakra-ui/react";
 import Header from "../components/Nav";
 import diamondLine from "../images/3.svg";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { IoIosAdd } from "react-icons/io";
 import { RxCaretDown } from "react-icons/rx";
-// import { useAddress } from "../Context/GlobalContext";
 import { Link as RouterLink } from "react-router-dom";
-
+import { useCart } from "../Context/GlobalContext";
 
 const Checkout2 = () => {
+  const { address, subtotal } = useCart();
+
   return (
     <Flex flexDir={"column"} minHeight={"100vh"} pb={"1.5em"}>
       <Header />
@@ -29,19 +30,30 @@ const Checkout2 = () => {
           <Text color={"#888888"} lineHeight={"16px"} letterSpacing={"1px"}>
             SHIPPING ADDRESS
           </Text>
-          <Flex
-            bg={"rgba(255, 94, 0, 10%)"}
-            alignItems={"center"}
-            p={"1em"}
-            borderRadius={"2rem"}
-          >
-            <Text>New shipping address</Text>
-            <Link ml={"auto"} _hover={{cursor: "pointer", textDecoration: "none"}}>
-            <RouterLink to="/">
-            <IoIosAdd size={"20px"}/>
-            </RouterLink>
-            </Link>
-          </Flex>
+          {address ? (
+            <Flex flexDir={"column"}  p={"1em"} gap={"0.6em"} color={"#555555"} lineHeight={"22px"}>
+              <Text fontWeight={500} fontSize={"18px"} color={"#000"}>{`${address.firstName} ${address.lastName}`}</Text>
+              <Text>{address.address}</Text>
+              <Text>{`${address.city}, ${address.state} ${address.zipCode}`}</Text>
+              <Text>{address.phoneNumber}</Text>
+            </Flex>
+          ) : <></>}
+            <Flex
+              bg={"rgba(255, 94, 0, 10%)"}
+              alignItems={"center"}
+              p={"1em"}
+              borderRadius={"2rem"}
+            >
+              <Text>New shipping address</Text>
+              <Link
+                ml={"auto"}
+                _hover={{ cursor: "pointer", textDecoration: "none" }}
+              >
+                <RouterLink to="/addaddress">
+                  <IoIosAdd size={"20px"} />
+                </RouterLink>
+              </Link>
+            </Flex>
         </Flex>
         <Flex flexDir={"column"} gap={"1em"}>
           <Text color={"#888888"} lineHeight={"16px"} letterSpacing={"1px"}>
@@ -50,16 +62,12 @@ const Checkout2 = () => {
           <Flex
             bg={"rgba(255, 94, 0, 10%)"}
             alignItems={"center"}
-            p={"1em"}
             borderRadius={"2rem"}
           >
-            <Text>Pickup at store</Text>
-            <Link ml={"auto"} _hover={{cursor: "pointer", textDecoration: "none"}}>
-            <Flex alignItems={"center"} gap={"1.5em"}>
-              <Text>FREE</Text>
-              <RxCaretDown size={"20px"} />
-            </Flex>
-            </Link>
+            <Select placeholder="Pickup at store" border={"none"} borderRadius={"2rem"} p={"0.5em"} _hover={{cursor: "pointer"}} _focus={{border: "none", outline:"none"}}>
+              <option>Delivery</option>
+            </Select>
+            {/* <Text>FREE</Text> */}
           </Flex>
         </Flex>
         <Flex flexDir={"column"} gap={"1em"}>
@@ -73,46 +81,48 @@ const Checkout2 = () => {
             borderRadius={"2rem"}
           >
             <Text>Select payment method</Text>
-            <Link ml={"auto"} _hover={{cursor: "pointer", textDecoration: "none"}}>
-            <RxCaretDown size={"20px"} />
-            </Link>
+            <RouterLink to={"/paymentmethod"} >
+            <Box ml={"auto"} _hover={{ cursor: "pointer", textDecoration: "none" }}>
+              <RxCaretDown size={"20px"} />
+            </Box>
+            </RouterLink>
           </Flex>
         </Flex>
       </Flex>
       <Box mt={"auto"}>
-      <Flex p={"1em 1.5em"}>
-        <Text lineHeight={"34.5px"} letterSpacing={"3px"}>
-          TOTAL
-        </Text>
-        <Text
-          ml={"auto"}
-          lineHeight={"34.5px"}
-          letterSpacing={"3px"}
-          color={"#FF5E00"}
-        >
-          $360
-        </Text>
-      </Flex>
-      <RouterLink to={"/"}>
-        <Box
-          bg={"#FF5E00"}
-          color={"#FCFCFC"}
-          p={"1em"}
-          _hover={{ cursor: "pointer" }}
-        >
-          <Flex
-            alignItems={"center"}
-            justifyContent={"space-between"}
-            w={"30%"}
-            m={"0 auto"}
+        <Flex p={"1em 1.5em"}>
+          <Text lineHeight={"34.5px"} letterSpacing={"3px"}>
+            TOTAL
+          </Text>
+          <Text
+            ml={"auto"}
+            lineHeight={"34.5px"}
+            letterSpacing={"3px"}
+            color={"#FF5E00"}
           >
-            <LiaShoppingBagSolid color="#FCFCFC" size={"20px"} />
-            <Text fontSize={"16px"} lineHeight={"26px"} letterSpacing={"1%"}>
-              PLACE ORDER
-            </Text>
-          </Flex>
-        </Box>
-      </RouterLink>
+            ${subtotal}
+          </Text>
+        </Flex>
+        <RouterLink to={"/"}>
+          <Box
+            bg={"#FF5E00"}
+            color={"#FCFCFC"}
+            p={"1em"}
+            _hover={{ cursor: "pointer" }}
+          >
+            <Flex
+              alignItems={"center"}
+              justifyContent={"space-between"}
+              w={"30%"}
+              m={"0 auto"}
+            >
+              <LiaShoppingBagSolid color="#FCFCFC" size={"20px"} />
+              <Text fontSize={"16px"} lineHeight={"26px"} letterSpacing={"1%"}>
+                PLACE ORDER
+              </Text>
+            </Flex>
+          </Box>
+        </RouterLink>
       </Box>
     </Flex>
   );

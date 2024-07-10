@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './Context/GlobalContext';
 import ProductListing from './pages/ProductListing';
 import Success from './pages/Success';
+import AddAddress from './pages/AddAddress';
+import PaymentMethod from './pages/PaymentMethod';
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
     <Route path='/cart' element={<Cart />} />
     <Route path='/checkout' element={<Checkout />} />
     <Route path='/checkout2' element={<Checkout2 />} />
+    <Route path='/addaddress' element={<AddAddress />} />
     <Route path='/productlisting' element={<ProductListing />} />
+    <Route path='/paymentmethod' element={<PaymentMethod />} />
     <Route path="success" element={<Success />} />
     </Routes>
     </Router>

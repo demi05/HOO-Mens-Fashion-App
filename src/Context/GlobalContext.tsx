@@ -9,6 +9,16 @@ export type CartItem = {
   quantity: number;
 };
 
+export type Address = {
+  firstName: string;
+  lastName: string;
+  address: string;
+  city: string;
+  state: string;
+  zipCode: string;
+  phoneNumber: string;
+};
+
 type CartContextType = {
   cart: CartItem[];
   addToCart: (item: CartItem) => void;
@@ -16,8 +26,10 @@ type CartContextType = {
   decreaseCartItem: (itemId: number) => void;
   removeFromCart: (itemId: number) => void;
   subtotal: number;
-  productDetails: CartItem | null; // Updated with productDetails state
-  setProductDetails: (item: CartItem | null) => void; // Added setProductDetails function
+  productDetails: CartItem | null;
+  setProductDetails: (item: CartItem | null) => void;
+  address: Address | null; 
+  setAddress: (address: Address) => void; 
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -33,7 +45,8 @@ export const useCart = () => {
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [subtotal, setSubtotal] = useState(0);
-  const [productDetails, setProductDetails] = useState<CartItem | null>(null); // Initialize productDetails state
+  const [productDetails, setProductDetails] = useState<CartItem | null>(null);
+  const [address, setAddress] = useState<Address | null>(null); 
 
   useEffect(() => {
     const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -73,6 +86,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         subtotal,
         productDetails,
         setProductDetails,
+        address, 
+        setAddress, 
       }}
     >
       {children}

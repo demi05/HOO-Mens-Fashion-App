@@ -51,7 +51,7 @@ const Checkout = () => {
           ${subtotal.toFixed(2)} 
         </Text>
       </Flex>
-      <RouterLink to="/success"> 
+      <RouterLink to="/checkout2"> 
         <Box bg={"#FF5E00"} color={"#FCFCFC"} p={"1em"} _hover={{ cursor: "pointer" }}>
           <Flex alignItems={"center"} justifyContent={"space-between"} w={"30%"} m={"0 auto"}>
             <LiaShoppingBagSolid color="#FCFCFC" size={"20px"} />
