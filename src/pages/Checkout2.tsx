@@ -8,7 +8,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { useCart } from "../Context/GlobalContext";
 
 const Checkout2 = () => {
-  const { address, subtotal } = useCart();
+  const { address, subtotal, paymentMethod } = useCart();
 
   return (
     <Flex flexDir={"column"} minHeight={"100vh"} pb={"1.5em"}>
@@ -38,6 +38,7 @@ const Checkout2 = () => {
               <Text>{address.phoneNumber}</Text>
             </Flex>
           ) : <></>}
+              <RouterLink to="/addaddress">
             <Flex
               bg={"rgba(255, 94, 0, 10%)"}
               alignItems={"center"}
@@ -47,13 +48,11 @@ const Checkout2 = () => {
               <Text>New shipping address</Text>
               <Link
                 ml={"auto"}
-                _hover={{ cursor: "pointer", textDecoration: "none" }}
-              >
-                <RouterLink to="/addaddress">
+              >            
                   <IoIosAdd size={"20px"} />
-                </RouterLink>
               </Link>
             </Flex>
+                </RouterLink>
         </Flex>
         <Flex flexDir={"column"} gap={"1em"}>
           <Text color={"#888888"} lineHeight={"16px"} letterSpacing={"1px"}>
@@ -74,6 +73,14 @@ const Checkout2 = () => {
           <Text color={"#888888"} lineHeight={"16px"} letterSpacing={"1px"}>
             PAYMENT METHOD
           </Text>
+          <RouterLink to={"/paymentmethod"} >
+          {paymentMethod ? (
+            <Flex flexDir={"column"} p={"1em"} gap={"0.6em"} color={"#555555"} lineHeight={"22px"}>
+              <Text fontWeight={500} fontSize={"18px"} color={"#000"}>{paymentMethod.nameOnCard}</Text>
+              <Text>{paymentMethod.cardNumber}</Text>
+              <Text>{`${paymentMethod.expMonth}/${paymentMethod.expYear}`}</Text>
+            </Flex>
+          ): <></>}
           <Flex
             bg={"rgba(255, 94, 0, 10%)"}
             alignItems={"center"}
@@ -81,12 +88,11 @@ const Checkout2 = () => {
             borderRadius={"2rem"}
           >
             <Text>Select payment method</Text>
-            <RouterLink to={"/paymentmethod"} >
-            <Box ml={"auto"} _hover={{ cursor: "pointer", textDecoration: "none" }}>
+            <Box ml={"auto"} >
               <RxCaretDown size={"20px"} />
             </Box>
-            </RouterLink>
           </Flex>
+            </RouterLink>
         </Flex>
       </Flex>
       <Box mt={"auto"}>
@@ -103,7 +109,7 @@ const Checkout2 = () => {
             ${subtotal}
           </Text>
         </Flex>
-        <RouterLink to={"/"}>
+        <RouterLink to={"/success"}>
           <Box
             bg={"#FF5E00"}
             color={"#FCFCFC"}

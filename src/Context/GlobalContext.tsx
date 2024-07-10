@@ -19,6 +19,14 @@ export type Address = {
   phoneNumber: string;
 };
 
+export type PaymentMethod = {
+  nameOnCard: string;
+  cardNumber: string;
+  expMonth: string;
+  expYear: string;
+  cvv: string;
+};
+
 type CartContextType = {
   cart: CartItem[];
   addToCart: (item: CartItem) => void;
@@ -30,6 +38,8 @@ type CartContextType = {
   setProductDetails: (item: CartItem | null) => void;
   address: Address | null; 
   setAddress: (address: Address) => void; 
+  paymentMethod: PaymentMethod | null;
+  setPaymentMethod: (paymentMethod: PaymentMethod) => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -47,6 +57,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [subtotal, setSubtotal] = useState(0);
   const [productDetails, setProductDetails] = useState<CartItem | null>(null);
   const [address, setAddress] = useState<Address | null>(null); 
+  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod | null>(null);
 
   useEffect(() => {
     const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -88,6 +99,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         setProductDetails,
         address, 
         setAddress, 
+        paymentMethod,
+        setPaymentMethod,
       }}
     >
       {children}

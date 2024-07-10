@@ -77,9 +77,7 @@ const Cart = () => {
           </RouterLink>
         </Box>
       </SimpleGrid>
-      <Flex alignItems={"center"} justifyContent={"center"} w={"100%"} mt={"3em"}>
         <Footer />
-      </Flex>
     </Box>
   );
 };
