@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, SimpleGrid, Text } from "@chakra-ui/react";
 import CardCheckout from "../components/CardCheckout";
 import Header from "../components/Nav";
 import diamondLine from "../images/3.svg";
@@ -20,6 +20,8 @@ const Checkout = () => {
         </Text>
         <Image src={diamondLine} />
       </Flex>
+      <SimpleGrid gridTemplateColumns={{base: "1fr",md:"repeat(2, 2fr)"}} gap={"2em"} p={"0 1.5em"}>
+        <Box boxShadow={{ sm: "none", md: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" }} alignItems={"start"} > 
       {cart.length === 0 ? (
         <Text pl={"1.5em"} fontWeight={500} mt={"3em"}>
           There are no items to checkout.
@@ -32,8 +34,10 @@ const Checkout = () => {
           removeFromCart={removeFromCart} 
         />
       )}
+      </Box>
+      <Box boxShadow={{ sm: "none", md: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" }} p={"1em 1.5em 2em 1.5em"} alignSelf={"flex-start"}>
       <Box p={"0 1.5em"}>
-        <Flex alignItems={"center"} borderTop={"1px solid #D9D9D9"} borderBottom={"1px solid #D9D9D9"} p={"1em 0"} gap={"1em"}>
+        <Flex alignItems={"center"} borderTop={{base:"1px solid #D9D9D9", md: "none"}} borderBottom={"1px solid #D9D9D9"} p={"1em 0"} gap={"1em"}>
           <Image src={voucher} />
           <Text lineHeight={"16px"}>Add promo code</Text>
         </Flex>
@@ -48,12 +52,12 @@ const Checkout = () => {
       <Flex p={"1em 1.5em"}>
         <Text lineHeight={"34.5px"} letterSpacing={"3px"}>EST. TOTAL</Text>
         <Text ml={"auto"} lineHeight={"34.5px"} letterSpacing={"3px"} color={"#FF5E00"}>
-          ${subtotal.toFixed(2)} 
+          ${subtotal} 
         </Text>
       </Flex>
       <RouterLink to="/checkout2"> 
         <Box bg={"#FF5E00"} color={"#FCFCFC"} p={"1em"} _hover={{ cursor: "pointer" }}>
-          <Flex alignItems={"center"} justifyContent={"space-between"} w={"30%"} m={"0 auto"}>
+          <Flex alignItems={"center"} justifyContent={"space-between"} w={{base:"30%", md: "50%"}} m={"0 auto"}>
             <LiaShoppingBagSolid color="#FCFCFC" size={"20px"} />
             <Text fontSize={"16px"} lineHeight={"26px"} letterSpacing={"1%"}>
               CHECKOUT
@@ -61,6 +65,8 @@ const Checkout = () => {
           </Flex>
         </Box>
       </RouterLink>
+      </Box>
+      </SimpleGrid>
     </Box>
   );
 };

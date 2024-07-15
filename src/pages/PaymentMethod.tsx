@@ -24,14 +24,14 @@ const PaymentMethod = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setPaymentMethod(formData);
-    navigate("/checkout2");
+    navigate("/checkout");
   };
 
   return (
     <Box>
       <Header />
       <Box>
-        <form>
+        <form onSubmit={handleSubmit}>
           <Flex flexDir={"column"} m={"2em 0 4em 0"} p={"0 1.5em"} gap={"2em"}>
             <Box>
               <Input
@@ -95,9 +95,9 @@ const PaymentMethod = () => {
                 _hover={{ outline: "none", borderBottom: "1px solid #888888" }}
               />
             </Box>
-          <Button onClick={handleSubmit} type="submit" bg={"#FF5E00"} color={"#FCFCFC"} p={"1em"}  _hover={{ cursor: "pointer" }}>
-            Add Card
-          </Button>
+            <Button type="submit" bg={"#FF5E00"} color={"#FCFCFC"} p={"1em"} _hover={{ cursor: "pointer" }}>
+              Add Card
+            </Button>
           </Flex>
         </form>
       </Box>
